@@ -1,1 +1,4 @@
-void playMp3(char* file);
+extern "C"
+{
+    void playMp3(char* file);
+}
