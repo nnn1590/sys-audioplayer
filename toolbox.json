@@ -1,5 +1,5 @@
 {
-	"name" : "sys-AudioPlayer",
-	"tid" : "4200000000000000",
+	"name": "sys-AudioPlayer",
+	"tid": "4200000000000000",
 	"requires_reboot": false
 }

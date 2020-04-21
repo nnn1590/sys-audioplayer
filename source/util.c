@@ -32,4 +32,3 @@ void fatalLater(Result err)
     ipcDispatch(srv);*/
     svcCloseHandle(srv);
 }
-
