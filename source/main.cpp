@@ -40,8 +40,8 @@ void __attribute__((weak)) __appInit(void)
     svcSleepThread(10000000000L);
 
     rc = smInitialize();
-    if (R_FAILED(rc))
-        fatalSimple(MAKERESULT(Module_Libnx, LibnxError_InitFail_SM));
+    //if (R_FAILED(rc))
+    //    fatalSimple(MAKERESULT(Module_Libnx, LibnxError_InitFail_SM));
         
     /*
     rc = timeInitialize();
@@ -52,28 +52,28 @@ void __attribute__((weak)) __appInit(void)
     */
 
     rc = hidInitialize();
-    if (R_FAILED(rc))
-        fatalSimple(MAKERESULT(Module_Libnx, LibnxError_InitFail_HID));
+    //if (R_FAILED(rc))
+    //    fatalSimple(MAKERESULT(Module_Libnx, LibnxError_InitFail_HID));
 
     rc = fsInitialize();
-    if (R_FAILED(rc))
-        fatalSimple(MAKERESULT(Module_Libnx, LibnxError_InitFail_FS));
+    //if (R_FAILED(rc))
+    //    fatalSimple(MAKERESULT(Module_Libnx, LibnxError_InitFail_FS));
 
     // init vsync events?
     rc = viInitialize(ViServiceType_System);
-    if (R_FAILED(rc))
-        fatalSimple(rc);
+    //if (R_FAILED(rc))
+    //    fatalSimple(rc);
 
     // need this to get pId
     rc = pmdmntInitialize();
-    if (R_FAILED(rc)) {
-        fatalSimple(rc);
-    }
+    //if (R_FAILED(rc)) {
+    //    fatalSimple(rc);
+    //}
 
     // need this to get applicationid
     rc = pminfoInitialize();
-    if (R_FAILED(rc))
-        fatalSimple(rc);
+    //if (R_FAILED(rc))
+    //    fatalSimple(rc);
 
     // setting hos version because apparently it changes some functions
     rc = setsysInitialize();
@@ -85,8 +85,8 @@ void __attribute__((weak)) __appInit(void)
         setsysExit();
     }
     rc = nsInitialize();
-    if (R_FAILED(rc))
-        fatalSimple(rc);
+    //if (R_FAILED(rc))
+    //    fatalSimple(rc);
     
     fsdevMountSdmc();
 }
@@ -107,7 +107,7 @@ void __attribute__((weak)) __appExit(void)
 u64 GetActiveApplicationProcessID()
 {
     u64 pid;
-    pmdmntGetApplicationPid(&pid);
+    pmdmntGetApplicationProcessId(&pid);
     return pid;
 }
 
@@ -116,7 +116,7 @@ u64 GetActiveTitleID()
     u64 title;
     u64 pid;
     pid = GetActiveApplicationProcessID();
-    pminfoGetTitleId(&title, pid);
+    pminfoGetProgramId(&title, pid);
     return title;
 }
 

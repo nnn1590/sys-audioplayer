@@ -11,7 +11,7 @@ void fatalLater(Result err)
     }
 
     // fatal is here time, fatal like a boss
-    IpcCommand c;
+    /*IpcCommand c;
     ipcInitialize(&c);
     ipcSendPid(&c);
     struct
@@ -24,12 +24,12 @@ void fatalLater(Result err)
 
     raw = ipcPrepareHeader(&c, sizeof(*raw));
 
-    raw->magic = SFCI_MAGIC;
+    //raw->magic = SFCI_MAGIC;
     raw->cmd_id = 1;
     raw->result = err;
     raw->unknown = 0;
 
-    ipcDispatch(srv);
+    ipcDispatch(srv);*/
     svcCloseHandle(srv);
 }
 
